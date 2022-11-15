@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+    Welcome, {{ name }}!
+</h1>
+
+<h2>
+    You have {{ cardCount }} cards.
+</h2>
+
+<h2>
+    You have {{ credits }} credits.
+</h2>
+
+{% for card in cards %}
+    {% if card.cardId == 0 %}
+        <img src="/static/Red.png" width=189 height=262>
+    {% endif %}
+    {% if card.cardId == 1 %}
+        <img src="/static/Cyan.png" width=189 height=262>
+    {% endif %}
+    {% if card.cardId == 2 %}
+        <img src="/static/Blue.png" width=189 height=262>
+    {% endif %}
+    {% if card.cardId == 3 %}
+        <img src="/static/Blue with baby.png" width=189 height=262>
+    {% endif %}
+    {% if card.cardId == 4 %}
+        <img src="/static/Golden Imposter.png" width=189 height=262>
+    {% endif %}
+    {% if card.cardId == 5 %}
+        <img src="/static/King Red.png" width=189 height=262>
+    {% endif %}
+    {% if card.cardId == 6 %}
+        <img src="/static/Partying Cyan.png" width=189 height=262>
+    {% endif %}
+{% endfor %}
+
+<a href="{{url_for('getpack')}}"><button class="button">Buy Pack (100 credits)</button></a>
+{% endblock %}

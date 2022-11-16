@@ -17,3 +17,13 @@ class Card(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     cardId = db.Column(db.Integer)
     owner_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
+class TradeOffer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cardId1 = db.Column(db.Integer)
+    cardId2 = db.Column(db.Integer)
+    isAccepted = db.Column(db.Boolean, default=False)
+    senderId = db.Column(db.Integer)
+    recieverId = db.Column(db.Integer)
+
+    name = db.Column(db.String(1000))

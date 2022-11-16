@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="title">
+    Trades
+</h1>
+
+<a href="{{ url_for('createtrade') }}"><button class="button">Create Trade</button></a>
+
+{% for trade in trades %}
+    <p>{{ trade.name }}</p>
+    <p>Accept Link: {{ request.host }}{{ url_for('acceptTrade') }}?tradeId={{ trade.id }}</p>
+    {% if trade.isAccepted %}
+        <a href="{{ url_for('viewTradeOffer') }}?tradeId={{ trade.id }}"><button class="button is-success">View Offer</button></a>
+    {% endif %}
+{% endfor %}
+
+{% endblock content %}

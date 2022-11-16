@@ -1,6 +1,6 @@
 from flask import flash, render_template, redirect, url_for
 from amoguscard import app, db
-from amoguscard.models import Card, User
+from amoguscard.models import Card
 from flask_login import login_required, current_user
 import random
 

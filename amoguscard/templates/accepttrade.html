@@ -1,19 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-    Welcome, {{ name }}!
-</h1>
 
-<h2>
-    You have {{ cardCount }} cards.
-</h2>
-
-<h2>
-    You have {{ credits }} credits.
-</h2>
-
-{% for card in cards %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Accept Trade</h3>
     {% if card.cardId == 0 %}
         <img title="ID: {{ card.id }}" src="/static/Red.png" width=189 height=262>
     {% endif %}
@@ -35,7 +25,17 @@
     {% if card.cardId == 6 %}
         <img title="ID: {{ card.id }}" src="/static/Partying Cyan.png" width=189 height=262>
     {% endif %}
-{% endfor %}
+    <p>Trade ID: {{ tradeId }}</p>
+    <div class="box">
+        <form method="POST" action="/trade/accept?tradeId={{ tradeId }}">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="cardId" placeholder="Card ID to trade" autofocus="">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Accept</button>
+        </form>
+    </div>
+</div>
 
-<a href="{{url_for('getpack')}}"><button class="button">Buy Pack (100 credits)</button></a>
-{% endblock %}
+{% endblock content %}

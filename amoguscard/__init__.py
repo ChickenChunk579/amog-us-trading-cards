@@ -17,3 +17,4 @@ login_manager.init_app(app)
 
 import amoguscard.auth
 import amoguscard.routes
+import amoguscard.trading

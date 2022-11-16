@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="title">
+    View Offer & Accept
+</h1>
+
+{% if card == 0 %}
+    <img title="ID: {{ card.id }}" src="/static/Red.png" width=189 height=262>
+{% endif %}
+{% if card == 1 %}
+    <img title="ID: {{ card.id }}" src="/static/Cyan.png" width=189 height=262>
+{% endif %}
+{% if card == 2 %}
+    <img title="ID: {{ card.id }}" src="/static/Blue.png" width=189 height=262>
+{% endif %}
+{% if card == 3 %}
+    <img title="ID: {{ card.id }}" src="/static/Blue with baby.png" width=189 height=262>
+{% endif %}
+{% if card == 4 %}
+    <img title="ID: {{ card.id }}" src="/static/Golden Imposter.png" width=189 height=262>
+{% endif %}
+{% if card == 5 %}
+    <img title="ID: {{ card.id }}" src="/static/King Red.png" width=189 height=262>
+{% endif %}
+{% if card == 6 %}
+    <img title="ID: {{ card.id }}" src="/static/Partying Cyan.png" width=189 height=262>
+{% endif %}
+
+<form method="POST" action="/trade/viewOffer?id={{ trade.id }}">
+    <button type="submit" class="button is-success">Accept</button>
+</form>
+
+{% endblock content %}
